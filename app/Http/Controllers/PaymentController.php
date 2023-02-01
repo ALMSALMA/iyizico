@@ -21,20 +21,20 @@ class PaymentController extends Controller
                 'id' => 123,
                 'name' => 'Auth User Name',
                 'surname' => 'Auth User Surname',
-                'phone' => 'Auth User phone',
-                'email' => 'Auth User Email',
-                'identity' => 'Auth User id card',
+                'phone' => '+901234567891',
+                'email' => 'user@email.com',
+                'identity' => '55555555555',
                 'address' => 'Auth User Address',
                 'ip' => \request()->ip(),
                 'city' => 'Auth User City',
                 'country' => 'Auth User Country',
             ])
-            ->setShipping([
-                'name' => 'User Address',
-                'city' => 'User City',
-                'country' => 'User Country',
-                'address' => 'User Address',
-            ])
+            // ->setShipping([
+            //     'name' => 'User Address',
+            //     'city' => 'User City',
+            //     'country' => 'User Country',
+            //     'address' => 'User Address',
+            // ])
             ->setBilling([
                 'name' => 'User Address',
                 'city' => 'User City',
@@ -62,7 +62,6 @@ class PaymentController extends Controller
         $token = $request->token;
         $iyzico = new Iyzico();
         $response = $iyzico->callbackForm($token);
-        dd($response);
 
         return view('callback', [
             'paymentStatus' => $response->getPaymentStatus(),

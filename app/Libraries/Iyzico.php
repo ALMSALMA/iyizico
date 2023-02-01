@@ -28,7 +28,7 @@ class Iyzico {
         $this->request->setBasketId($params['basketID']);
         $this->request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
         $this->request->setCallbackUrl(route('payment_callback'));
-        // $this->request->setEnabledInstallments(array(2, 3, 6, 9));
+        $this->request->setEnabledInstallments(array(2, 3, 6, 9));
         return $this;
     }
 
